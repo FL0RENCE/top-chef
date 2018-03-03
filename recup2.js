@@ -57,6 +57,14 @@ for (var j=0; j<restaurants.length; j++){
 		querry=querry+mots[i]+"%20";
 	querry=querry+mots[mots.length-1];
 	
+	var promo=[{"title":"",
+	"promo":}]
+	
+	var promotions=JSON.stringify(promo);
+	
+	var fs = require('fs');
+	fs.writeFile("rpomotions.json", promotion);
+	
 	fetch(lienfourchette+querry);
 	//resultats de la recerche asociée à chaque resto
 	.then(res=>res.json())
@@ -69,7 +77,11 @@ for (var j=0; j<restaurants.length; j++){
 				fetch("https://www.lafourchette.com"+res.data.name.href);
 				.then(page=>page.json())
 				.then(res=>{
-					
+					//regarder si promo
+					try{
+						promotion[l].title=restaurants[i].ref.name;
+						promotion[l].promo=promores.container.restaurantCard-container.restaurantCard-left.restaurant-card.restaurantContent."tab-pane active".RestaurantTabContent-section."saleTypes restaurantTabContent-section"."saleType saleType--speciaOffer"."saleType-title;
+					}
 				}
 			}	
 		}
